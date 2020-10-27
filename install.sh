@@ -23,5 +23,7 @@ echo "extension =oci8.so" >> /etc/php/7.4/apache2/php.ini
 echo "export LD_LIBRARY_PATH=/opt/oracle/instantclient_12_2" >> /etc/apache2/envvars
 echo "export ORACLE_HOME=/opt/oracle/instantclient_12_2" >> /etc/apache2/envvars
 echo "LD_LIBRARY_PATH=/opt/oracle/instantclient_12_2:$LD_LIBRARY_PATH" >> /etc/environment
+mv /etc/ld.so.conf.d/oracle-instantclient /etc/ld.so.conf.d/oracle-instantclient.conf
+ldconfig
 php -m | grep 'oci8'
 echo "finish"
